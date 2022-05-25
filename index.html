@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="typescript project">
     <meta name="author" content="Adebisi Adeyemi">
+    <title>Ledger</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -52,14 +53,16 @@
 </div>
 <div id="popup-div">
     <div id="popup-header"> <div id="popup-title"> Do you want to delete this? </div> <button id="close-button">X</button> </div>
+    
     <form id="form-pop"> 
       
         <input type="password" id="password" placeholder="Enter password to delete">
+        <div id="incorrect"></div>
         <button id="submit" type="submit">Enter</button>
     </form>
 </div>
 <div id="overlay"></div>
-<script type="module" src="./App.js"></script>
+<script type="module" src="./public/App.js"></script>
 
 
 </body>

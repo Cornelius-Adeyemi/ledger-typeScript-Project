@@ -54,6 +54,8 @@ const buttonClose = document.getElementById("close-button");
 const popupDiv = document.getElementById("popup-div");
 const overlayDiv = document.getElementById("overlay");
 const popInput = document.getElementById("password");
+const incorrectDiv = document.getElementById("incorrect");
+popInput.addEventListener("focus", theFocus);
 list.addEventListener("click", dele);
 function popit(e) {
     popupDiv.classList.add("active");
@@ -63,6 +65,7 @@ buttonClose.addEventListener("click", closepop);
 function closepop() {
     popupDiv.classList.remove("active");
     overlayDiv.classList.remove("active");
+    incorrectDiv.innerText = "";
 }
 overlayDiv.addEventListener("click", closepop);
 const popForm = document.getElementById("form-pop");
@@ -71,8 +74,14 @@ function submitForm(e) {
     e.preventDefault();
     if (popInput.value !== "" && popInput.value === "cornelius") {
         popDelete(targetElement);
+        closepop();
     }
-    closepop();
+    else if (popInput.value === "") {
+        incorrectDiv.innerText = "Please fill in the field";
+    }
+    else if (popInput.value !== "cornelius") {
+        incorrectDiv.innerText = "Incorrect password";
+    }
     popInput.value = "";
 }
 function popDelete(e) {
@@ -81,4 +90,7 @@ function popDelete(e) {
     //console.log(Array.from(children).indexOf(e.target.parentElement.parentElement));
     store.delet(Array.from(children).indexOf(e.parentElement.parentElement));
     parent.remove();
+}
+function theFocus() {
+    incorrectDiv.innerText = "";
 }

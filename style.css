@@ -121,6 +121,7 @@ input[type='submit']{
 #close-button{
     border: none;
     background: none;
+    cursor: pointer;
 }
 #form-pop{
     display: flex;
@@ -170,4 +171,12 @@ input[type='submit']{
 
 #popup-div.active{
     transform: translate(-50%,-50%) scale(1); 
+}
+#incorrect{
+    color: rgb(247, 16, 0);
+  
+}
+
+#incorrect.active{
+    display:none;
 }
